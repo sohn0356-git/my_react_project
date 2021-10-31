@@ -19,7 +19,7 @@
   * source ~/.bash_profile
 7. Java 설치
   * java 11.0.13
-8. XCode
+8. XCode <= 11.3.1
   * App store에서 검색
 9. Visual Studio Code
   * extension
