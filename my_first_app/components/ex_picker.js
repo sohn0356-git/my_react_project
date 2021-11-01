@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { Picker } from '@react-native-community/picker';
 
-const picker = () => {
+const ex_picker = () => {
   const [country, setCountry] = useState('canada')
   const onCountryHandler = (choice, idx) => {
     setCountry(choice);
@@ -28,12 +28,11 @@ const picker = () => {
 
 const styles = StyleSheet.create({
   container:{
-    flex:1,
     backgroundColor:'pink',
     alignItems:'center',
     padding:5,
-    marginBottom:200
+    marginBottom:200,
   }
 })
 
-export default picker;
+export default ex_picker;

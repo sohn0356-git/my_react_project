@@ -7,4 +7,4 @@
 ### 프로젝트 폴더 및 설명
   #### my_first_app
     * 기초적인 내용을 컴포넌트에 담아 활용해보기
-      * 추가예정 
+      * Text, Button, TouchableOpacity, Picker

@@ -431,6 +431,8 @@ Thumbs.db
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+assets
+
 # Package Files #
 *.war
 *.ear
