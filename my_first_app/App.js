@@ -14,14 +14,13 @@ import {
 } from 'react-native';
 import TextView from './components/Text';
 import Header from './components/header'
+import Generator from './components/generator';
+import Picker from './components/picker'
 
 const App = () => {
   return(
     <View style={styles.mainView}>
-      <Header />
-      <Text>
-        Hello World
-      </Text>
+      <Picker></Picker>
     </View>
   )
 }
