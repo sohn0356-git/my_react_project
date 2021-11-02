@@ -12,7 +12,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
   - npm cache clean --force
   - rm -rf node_modules
   - rm -rf package-lock.json
-  - rm -rf ios/build
+  - rm -rf ios/Pods
   - rm -rf ios/Podfile.Lock
   - npm i
   - npm start or npm run dev

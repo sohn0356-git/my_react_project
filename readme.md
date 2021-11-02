@@ -7,4 +7,7 @@
 ### 프로젝트 폴더 및 설명
   #### my_first_app
     * 기초적인 내용을 컴포넌트에 담아 활용해보기
-      * Text, Button, TouchableOpacity, Picker
+      - Text, Button, TouchableOpacity, Picker
+  #### react_navigation
+    * Navigation을 본격적으로 활용하여 App 생성해보기
+      - Stack
