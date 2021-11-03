@@ -28,6 +28,6 @@
     * Material Icon Theme
     * Night owl
 10. cocoapods 설치
-  * sudo gem install cocoapods -v 1.8.4
+  * sudo gem install cocoapods -v 1.8.4 => 1.10.2
 11. react-native-cli 설치
   * npm install -g react-native-cli
