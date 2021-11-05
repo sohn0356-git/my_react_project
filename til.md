@@ -1,5 +1,5 @@
 # 211029
-* react-native init --verison 0.61.5 [Project Name]
+* react-native init --verison 0.63.4 [Project Name]
 * npx react-native run-ios
 * npm start, npm run ios
 
@@ -14,3 +14,14 @@
 * npm install --save react-native-gesture-handler react-native-screens react-native-safe-area-context
 * npx pod-install ios
 * npm install --save @react-navigation/stack
+
+* npm install --save @react-navigation/native react-native-reanimated @react-native-community/masked-view react-native-gesture-handler react-native-screens react-native-safe-area-context @react-navigation/stack
+
+#211105
+* podfile에서 다음 부분 주석처리하기
+```cpp
+# use_flipper!
+# post_install do |installer|
+#   flipper_post_install(installer)
+# end
+```
