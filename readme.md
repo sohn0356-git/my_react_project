@@ -10,4 +10,4 @@
       - Text, Button, TouchableOpacity, Picker
   #### react_navigation
     * Navigation을 본격적으로 활용하여 App 생성해보기
-      - Stack
+      - Stack, Drawer
