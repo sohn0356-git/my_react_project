@@ -41,3 +41,11 @@ headerTitle: (props) => <LogoTitle {...props} />
 * npm uninstall @react-navigation/native
 * npm install --save @react-navigation/native@5.7.6 @install @react-navigation/stack@5.9.3 @react-navigation/bottom-tabs@5.9.2
 * npm install --save react-native-reanimated@1.13.1 react-native-safe-area-context@3.1.8 react-native-screens@2.11.0 @react-native-community/masked-view@0.1.10
+
+# 211107
+* 이메일 여부 확인
+```
+const expression =
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+return expression.test(String(value).toLocaleLowerCase());
+```

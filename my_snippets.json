@@ -3,7 +3,7 @@
     "prefix" : "rt",
     "body" : [
       "import React from 'react';",
-      "import { View, Text } from 'react-native",
+      "import { View, Text } from 'react-native';",
       "",
       "const ${TM_FILENAME_BASE} = () => {",
       " return (",
@@ -13,7 +13,7 @@
       " );",
       "}",
       "",
-      "export default ${TM_FILENAME_BASE};",
+      "export default ${TM_FILENAME_BASE};"
     ],
     "description": "react template"
   }
