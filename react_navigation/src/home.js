@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Image } from 'react-native';
+import moveStack from '../utils/moveStack';
 
 const HomeScreen = (props) => {
-  console.log(props);
   return (
    <View style={{
      flex:1,
@@ -14,9 +14,24 @@ const HomeScreen = (props) => {
         <Button
           title="Go to user"
           onPress={()=>{
-            props.navigation.navigate('User');
-            console.log("pushed")
+            moveStack(props,'User',{
+              userIdx: 100,
+              userName: 'GilDong',
+              userLastName: 'Hong'
+            });
           }}
+        />
+        <Button 
+          title = "Change the title"
+          // onPress={()=>{
+          //   props.navigation.setOptions({
+          //     // title:'Changed!!',
+          //     headerStyle:{
+          //       backgroundColor:'pink'
+          //     },
+          //     headerTintColor:'red',
+          //   })
+          // }}
         />
    </View>
  );
