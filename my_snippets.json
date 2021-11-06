@@ -1,0 +1,20 @@
+{
+  "React Page" : {
+    "prefix" : "rt",
+    "body" : [
+      "import React from 'react';",
+      "import { View, Text } from 'react-native",
+      "",
+      "const ${TM_FILENAME_BASE} = () => {",
+      " return (",
+      "   <View>",
+      "        <Text>hi there</Text>",
+      "   </View>",
+      " );",
+      "}",
+      "",
+      "export default ${TM_FILENAME_BASE};",
+    ],
+    "description": "react template"
+  }
+}
