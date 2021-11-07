@@ -3,6 +3,10 @@ import { View, StyleSheet, Text, Platform, Button } from 'react-native';
 import Input from '../../utils/forms/input';
 import ValidationRules from '../../utils/forms/validationRules';
 
+import { connect } from 'react-redux';
+import { signIn, signUp } from '../../store/actions/user_action';
+import { bindActionCreators } from 'redux';
+
 const AuthForm = (props) => {
   const [type, setType] = useState("login");
   const [action, setAction] = useState("login");
@@ -59,6 +63,13 @@ const AuthForm = (props) => {
     }
     if(isFormValid){
       submittedForm = {'email':email.value,'password':password.value}
+      if(type !=='login'){
+        props.signUp(submittedForm);
+      } else {
+        props.signIn(submittedForm);
+        alert('check');
+        console.log('check');
+      }
     } else {
       setHasErrors(true)
     }
@@ -145,4 +156,14 @@ const styles = StyleSheet.create({
   }
 })
 
-export default AuthForm;
+function mapStateToProps(state){
+  return{
+    User: state.User
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({signIn,signUp}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthForm);

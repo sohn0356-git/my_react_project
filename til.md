@@ -49,3 +49,5 @@ const expression =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 return expression.test(String(value).toLocaleLowerCase());
 ```
+
+* brew install --cask react-native-debugger //Debug tool 사용을 위한 설치

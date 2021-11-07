@@ -433,7 +433,7 @@ Thumbs.db
 
 assets
 
-misc
+misc.js
 
 # Package Files #
 *.war
