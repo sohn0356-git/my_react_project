@@ -51,3 +51,6 @@ return expression.test(String(value).toLocaleLowerCase());
 ```
 
 * brew install --cask react-native-debugger //Debug tool 사용을 위한 설치
+
+# 211008
+* npm install --save @react-native-async-storage/async-storage

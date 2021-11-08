@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, Platform, Button } from 'react-native';
 import Input from '../../utils/forms/input';
 import ValidationRules from '../../utils/forms/validationRules';
@@ -6,6 +6,8 @@ import ValidationRules from '../../utils/forms/validationRules';
 import { connect } from 'react-redux';
 import { signIn, signUp } from '../../store/actions/user_action';
 import { bindActionCreators } from 'redux';
+import { setTokens } from '../../utils/misc';
+import { getTokens } from '../../utils/misc';
 
 const AuthForm = (props) => {
   const [type, setType] = useState("login");
@@ -15,6 +17,12 @@ const AuthForm = (props) => {
   const [password, setPassword] = useState({value:"",rules:{isRequired:true, minLength:6},valid:false});
   const [rePassword, setRePassword] = useState({value:"",rules:{isRequired:true, minLength:6, confirmPassword:false},valid:false});
   const [hasErrors, setHasErrors] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      getTokens();
+    };
+  }, []);
 
   const confirmPassword = () => {
     return (
@@ -55,6 +63,18 @@ const AuthForm = (props) => {
     setHasErrors(false)
   }
 
+  const manageAccess = () => {
+    console.log(props.User.auth);
+    if(!props.User.auth.userId){
+      setHasErrors(true);
+    } else {
+      setTokens(props.User.auth, ()=>{
+        setHasErrors(false);
+        props.goWithoutLogin();
+      })
+    }
+  }
+
   const submitUser = () => {
     let isFormValid = email.valid && password.valid;
     let submittedForm = {};
@@ -64,16 +84,20 @@ const AuthForm = (props) => {
     if(isFormValid){
       submittedForm = {'email':email.value,'password':password.value}
       if(type !=='login'){
-        props.signUp(submittedForm);
+        props.signUp(submittedForm).then(()=>{
+          changeForm();
+          manageAccess();
+        });
+        
       } else {
-        props.signIn(submittedForm);
-        alert('check');
-        console.log('check');
+        props.signIn(submittedForm).then(()=>{
+          manageAccess();
+        });
       }
     } else {
       setHasErrors(true)
     }
-    console.log(isFormValid, JSON.stringify(submittedForm))
+    // console.log(isFormValid, JSON.stringify(submittedForm))
   }
 
   return (
@@ -87,7 +111,6 @@ const AuthForm = (props) => {
         placeholderTextColor="#ddd"
         onChangeText={(val)=>{
           setEmail({...email, value:val, valid:ValidationRules(val, email.rules)})
-          console.log(email)
         }}
       />
       <Input 
