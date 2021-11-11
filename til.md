@@ -52,5 +52,8 @@ return expression.test(String(value).toLocaleLowerCase());
 
 * brew install --cask react-native-debugger //Debug tool 사용을 위한 설치
 
-# 211008
+# 211108
 * npm install --save @react-native-async-storage/async-storage
+
+# 211109
+* diary_ex01 한 번에 data write 안 되는 error 발생 => 
