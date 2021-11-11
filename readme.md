@@ -17,3 +17,5 @@
   #### app_proto
     * 실제 앱에 적용할 Component 만들어보기
     * firebase를 활용하여 기존 app의 db에도 접근
+  #### sampleApp
+    * sampleApp들을 분석하여 앞으로 만들 App 구상해보기
