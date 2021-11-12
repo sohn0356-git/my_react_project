@@ -56,4 +56,30 @@ return expression.test(String(value).toLocaleLowerCase());
 * npm install --save @react-native-async-storage/async-storage
 
 # 211109
-* diary_ex01 한 번에 data write 안 되는 error 발생 => 
+* diary_ex01 한 번에 data write 안 되는 error 발생 => diary_ex02 생성 및 다시 만들어보기
+
+# 211112
+* npm install --save react-native-vector-icons
+* ios
+  * XCode에서 ios 폴더 들어가기
+  * Fonts에 원하는 ttf파일 추가
+  * Info에서 Fonts provided by application의 Item에 추가한 ttf파일 등록
+  * shift command k
+  * command b
+* android
+  * android₩app₩src₩build.gradle 제일 아래에 다음 코드 추가
+```
+project.ext.vectoricons = [
+    iconFontNames: [ 'MaterialIcons.ttf', 'EvilIcons.ttf' ] // Name of the font files you want to copy
+]
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+```
+  * android₩gradle₩settings.gradle에 다음 코드 추가
+```
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+```
+  * android₩app₩src₩build.gradle 다음 코드 추가
+```
+implementation project(':react-native-vector-icons')
+```
