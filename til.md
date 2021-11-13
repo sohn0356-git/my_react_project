@@ -83,3 +83,16 @@ project(':react-native-vector-icons').projectDir = new File(rootProject.projectD
 ```
 implementation project(':react-native-vector-icons')
 ```
+
+# 211113
+* Dimensions.get window, screen의 차이
+  * ios의 경우 똑같은 값을 읽어오지만 android의 경우 screen은 제일 위의 navigation bar를 포함, window는 포함하지 않는다는 차이가 있다.
+* aspectRatio
+  * 부모의 size에서 얼마만큼의 비율을 차지할 것인가
+* KeyboardAvoidingView
+  * Keyboard가 화면을 가릴 경우 사용
+  * Android의 경우 보통 문제가 없지만 ios를 사용할 경우 여러 키보드 issue가 있음
+  * behavior : 주로 padding을 주는데 keyboard가 올라온 만큼 화면을 위로 밀어줌
+  * keyboardVerticalOffset : behavior로도 화면을 키보드가 가리는 현상 발생할 때 주는 값
+* Flatlist
+  * 대충 recyclerview 같은 느낌
