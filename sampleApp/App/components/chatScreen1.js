@@ -12,6 +12,8 @@ import {
   FlatList,
   Dimensions,
   Alert,
+  KeyboardAvoidingView,
+  Platform
 } from 'react-native';
 import { Icon } from 'react-native-elements';
 
@@ -73,6 +75,36 @@ export default function ChatScreen1({ navigation }) {
       message: `Sure!`,
       time: '6:05 PM',
     },
+    {
+      sender: 'Robert Henry',
+      message: `Sure!`,
+      time: '6:06 PM',
+    },
+    {
+      sender: 'Robert Henry',
+      message: `Sure!`,
+      time: '6:06 PM',
+    },
+    {
+      sender: 'Robert Henry',
+      message: `Sure!`,
+      time: '6:07 PM',
+    },
+    {
+      sender: 'Robert Henry',
+      message: `Sure!`,
+      time: '6:09 PM',
+    },
+    {
+      sender: 'Robert Henry',
+      message: `Sure!`,
+      time: '6:11 PM',
+    },
+    {
+      sender: 'Robert Henry',
+      message: `Sure!`,
+      time: '6:05 PM',
+    },
   ]);
 
   const [inputMessage, setInputMessage] = useState('');
@@ -119,7 +151,7 @@ export default function ChatScreen1({ navigation }) {
               name='angle-left'
               type='font-awesome'
               size={30}
-              color='#fff'
+              color='#f2f2ff'
             />
           </TouchableOpacity>
           <Image
@@ -132,10 +164,10 @@ export default function ChatScreen1({ navigation }) {
               justifyContent: 'center',
             }}
           >
-            <Text style={{ color: '#fff', fontWeight: '700', fontSize: 18 }}>
+            <Text style={{ color: '#000', fontWeight: '700', fontSize: 18 }}>
               {chatUser.name}
             </Text>
-            <Text style={{ color: '#fff', fontWeight: '300' }}>
+            <Text style={{ color: '#000', fontWeight: '300' }}>
               {chatUser.last_seen}
             </Text>
           </View>
@@ -148,85 +180,91 @@ export default function ChatScreen1({ navigation }) {
             Alert.alert('Audio Call', 'Audio Call Button Pressed');
           }}
         >
-          <Icon name='call' size={28} color='#fff' />
+          <Icon name='call' size={28} color='#f0f0f0' />
         </TouchableOpacity>
       ),
     });
   }, []);
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <View style={styles.container}>
-        <FlatList
-          style={{ backgroundColor: '#f2f2ff' }}
-          inverted={true}
-          data={JSON.parse(JSON.stringify(messages)).reverse()}
-          renderItem={({ item }) => (
-            <TouchableWithoutFeedback>
-              <View style={{ marginTop: 6 }}>
-                <View
-                  style={{
-                    maxWidth: Dimensions.get('screen').width * 0.8,
-                    backgroundColor: '#3a6ee8',
-                    alignSelf:
-                      item.sender === currentUser.name
-                        ? 'flex-end'
-                        : 'flex-start',
-                    marginHorizontal: 10,
-                    padding: 10,
-                    borderRadius: 8,
-                    borderBottomLeftRadius:
-                      item.sender === currentUser.name ? 8 : 0,
-                    borderBottomRightRadius:
-                      item.sender === currentUser.name ? 0 : 8,
-                  }}
-                >
-                  <Text
+    <KeyboardAvoidingView 
+      style={{flex:1}}
+      behavior={Platform.OS === 'ios' ? 'padding' : null}
+      keyboardVerticalOffset={60}
+    >
+      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+        <View style={styles.container}>
+          <FlatList
+            style={{ backgroundColor: '#f2f2ff' }}
+            inverted={true}
+            data={JSON.parse(JSON.stringify(messages)).reverse()}
+            renderItem={({ item }) => (
+              <TouchableWithoutFeedback>
+                <View style={{ marginTop: 6 }}>
+                  <View
                     style={{
-                      color: '#fff',
-                      fontSize: 16,
+                      maxWidth: Dimensions.get('screen').width * 0.8,
+                      backgroundColor: '#3a6ee8',
+                      alignSelf:
+                        item.sender === currentUser.name
+                          ? 'flex-end'
+                          : 'flex-start',
+                      marginHorizontal: 10,
+                      padding: 10,
+                      borderRadius: 8,
+                      borderBottomLeftRadius:
+                        item.sender === currentUser.name ? 8 : 0,
+                      borderBottomRightRadius:
+                        item.sender === currentUser.name ? 0 : 8,
                     }}
                   >
-                    {item.message}
-                  </Text>
-                  <Text
-                    style={{
-                      color: '#dfe4ea',
-                      fontSize: 14,
-                      alignSelf: 'flex-end',
-                    }}
-                  >
-                    {item.time}
-                  </Text>
+                    <Text
+                      style={{
+                        color: '#fff',
+                        fontSize: 16,
+                      }}
+                    >
+                      {item.message}
+                    </Text>
+                    <Text
+                      style={{
+                        color: '#dfe4ea',
+                        fontSize: 14,
+                        alignSelf: 'flex-end',
+                      }}
+                    >
+                      {item.time}
+                    </Text>
+                  </View>
                 </View>
-              </View>
-            </TouchableWithoutFeedback>
-          )}
-        />
-
-        <View style={{ paddingVertical: 10 }}>
-          <View style={styles.messageInputView}>
-            <TextInput
-              defaultValue={inputMessage}
-              style={styles.messageInput}
-              placeholder='Message'
-              onChangeText={(text) => setInputMessage(text)}
-              onSubmitEditing={() => {
-                sendMessage();
-              }}
-            />
-            <TouchableOpacity
-              style={styles.messageSendView}
-              onPress={() => {
-                sendMessage();
-              }}
-            >
-              <Icon name='send' type='material' />
-            </TouchableOpacity>
+              </TouchableWithoutFeedback>
+            )}
+            keyExtractor={(item,idx) => idx.toString()}
+          />
+          <View style={{ paddingVertical: 30 }}>
+            <View style={styles.messageInputView}>
+              <TextInput
+                defaultValue={inputMessage}
+                style={styles.messageInput}
+                placeholder='Message'
+                onChangeText={(text) => setInputMessage(text)}
+                onSubmitEditing={() => {
+                  sendMessage();
+                }}
+              />
+              <TouchableOpacity
+                style={styles.messageSendView}
+                onPress={() => {
+                  sendMessage();
+                }}
+              >
+                <Icon name='send' type='font-awesome' />
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-      </View>
-    </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }
 

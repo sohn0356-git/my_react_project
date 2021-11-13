@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import Logo from '../assets/image/xx.png';
 
-export default function LoginScreen1({navigation}) {
+export default function RegisterScreen1({navigation}) {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
@@ -30,7 +30,7 @@ export default function LoginScreen1({navigation}) {
                 source={Logo}
               />
             </View>
-            <Text style={styles.loginTitleText}>Login</Text>
+            <Text style={styles.registerTitleText}>Register</Text>
             <View style={styles.hr}></View>
             <View style={styles.inputBox}>
               <Text style={styles.inputLabel}>Email</Text>
@@ -39,6 +39,7 @@ export default function LoginScreen1({navigation}) {
                 autoCapitalize={'none'}
                 keyboardType='email-address'
                 textContentType='emailAddress'
+                placeholder='Email@address.com'
               />
             </View>
             <View style={styles.inputBox}>
@@ -48,25 +49,18 @@ export default function LoginScreen1({navigation}) {
                 autoCapitalize={'none'}
                 secureTextEntry={true}
                 textContentType='password'
+                placeholder='******'
               />
             </View>
-            <TouchableOpacity style={styles.loginButton}>
-              <Text style={styles.loginButtonText}>Login</Text>
+            <TouchableOpacity style={styles.registerButton}>
+              <Text style={styles.registerButtonText}>Register</Text>
             </TouchableOpacity>
-            <View style={styles.registerBox}>
+            <TouchableOpacity
+              onPress={()=>{navigation.goBack()}}
+            >
               <Text style={styles.registerText}>
-                Don't have an account?
+                Back
               </Text>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Register')}
-              >
-                <Text style={[styles.registerText,{color:'blue'}]}>
-                  Register Now
-                </Text>
-              </TouchableOpacity>
-            </View>
-            <TouchableOpacity>
-              <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -138,7 +132,7 @@ const styles = StyleSheet.create({
     shadowRadius: 1.41,
     elevation: 2,
   },
-  loginTitleText: {
+  registerTitleText: {
     fontSize: 26,
     fontWeight: 'bold',
     marginTop: 10,
@@ -163,27 +157,22 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     paddingHorizontal: 10,
   },
-  loginButton: {
+  registerButton: {
     backgroundColor: '#EE6294',
     marginTop: 10,
     paddingVertical: 10,
     borderRadius: 4,
   },
-  loginButtonText: {
+  registerButtonText: {
     color: '#fff',
     textAlign: 'center',
     fontSize: 20,
     fontWeight: 'bold',
   },
-  registerBox: {
-    display:'flex',
-    flexDirection:'row',
-  },
   registerText: {
     textAlign: 'center',
     marginTop: 20,
     fontSize: 16,
-    marginLeft:10
   },
   forgotPasswordText: {
     textAlign: 'center',

@@ -1,11 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import LoginScreen1 from './loginScreen1';
-import ChatScreen1 from './chatScreen1';
+import MyStack from './Stack';
 
 const App = () => {
  return (
-   <LoginScreen1 />
+   <MyStack />
  );
 }
 

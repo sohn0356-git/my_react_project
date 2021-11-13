@@ -20,6 +20,7 @@
 		754BD938997FD23B166C05BA /* libPods-sampleApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41020F0B796FBDFCD950D9F3 /* libPods-sampleApp-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		93E63ED265E8CB7D75D51D56 /* libPods-sampleApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F923AAC0359F4AA2BB02A0DE /* libPods-sampleApp.a */; };
+		E77F3977273F5A8F00EEAE6C /* material.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E77F3976273F5A8F00EEAE6C /* material.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		E6031F3D2FE0B8969C9D885A /* Pods-sampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sampleApp.release.xcconfig"; path = "Target Support Files/Pods-sampleApp/Pods-sampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		E70BE615273EA48F00E2358F /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		E70BE616273EA49B00E2358F /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		E77F3976273F5A8F00EEAE6C /* material.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = material.ttf; path = ../../../../../../Downloads/material.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F923AAC0359F4AA2BB02A0DE /* libPods-sampleApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sampleApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +207,7 @@
 			children = (
 				E70BE616273EA49B00E2358F /* Ionicons.ttf */,
 				E70BE615273EA48F00E2358F /* FontAwesome.ttf */,
+				E77F3976273F5A8F00EEAE6C /* material.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E77F3977273F5A8F00EEAE6C /* material.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
