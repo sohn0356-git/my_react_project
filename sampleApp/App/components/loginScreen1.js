@@ -11,6 +11,7 @@ import {
   Keyboard,
 } from 'react-native';
 import { Icon } from 'react-native-elements';
+import Logo from '../assets/image/xx.png';
 
 export default function LoginScreen1() {
   return (
@@ -21,12 +22,20 @@ export default function LoginScreen1() {
         <View style={styles.centerizedView}>
           <View style={styles.authBox}>
             <View style={styles.logoBox}>
-              <Icon
+              <Image 
+                style={{
+                  width:110,
+                  height:110,
+                  resizeMode:'contain'
+                }}
+                source={Logo}
+              />
+              {/* <Icon
                 color='#fff'
                 name='comments'
                 type='font-awesome'
                 size={50}
-              />
+              /> */}
             </View>
             <Text style={styles.loginTitleText}>Login</Text>
             <View style={styles.hr}></View>
@@ -74,7 +83,7 @@ const styles = StyleSheet.create({
   bigCircle: {
     width: Dimensions.get('window').height * 0.7,
     height: Dimensions.get('window').height * 0.7,
-    backgroundColor: '#ff6b81',
+    backgroundColor: '#C37094',
     borderRadius: 1000,
     position: 'absolute',
     right: Dimensions.get('window').width * 0.25,
@@ -83,7 +92,7 @@ const styles = StyleSheet.create({
   smallCircle: {
     width: Dimensions.get('window').height * 0.4,
     height: Dimensions.get('window').height * 0.4,
-    backgroundColor: '#ff7979',
+    backgroundColor: '#D978B0',
     borderRadius: 1000,
     position: 'absolute',
     bottom: Dimensions.get('window').width * -0.2,
@@ -112,7 +121,7 @@ const styles = StyleSheet.create({
   logoBox: {
     width: 100,
     height: 100,
-    backgroundColor: '#eb4d4b',
+    backgroundColor: '#EEA3D3',
     borderRadius: 1000,
     alignSelf: 'center',
     display: 'flex',
@@ -155,7 +164,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   loginButton: {
-    backgroundColor: '#ff4757',
+    backgroundColor: '#EE6294',
     marginTop: 10,
     paddingVertical: 10,
     borderRadius: 4,
