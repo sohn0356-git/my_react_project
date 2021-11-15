@@ -96,3 +96,9 @@ implementation project(':react-native-vector-icons')
   * keyboardVerticalOffset : behavior로도 화면을 키보드가 가리는 현상 발생할 때 주는 값
 * Flatlist
   * 대충 recyclerview 같은 느낌
+
+# 211114
+* npm install --save @react-navigation/native react-native-reanimated @react-native-community/masked-view react-native-gesture-handler react-native-screens react-native-safe-area-context @react-navigation/stack @react-navigation/bottom-tabs axios@0.18.0 react-redux@6.0.1 redux@4.0.1 redux-promise@0.6.0 @react-native-async-storage/async-storage react-native-vector-icons @react-native-community/picker react-native-elements
+
+# 211115
+* Cannot update a component from inside the function body of a different component <= navigator header setting하는 부분을 useEffect로 감싸줌으로 해결

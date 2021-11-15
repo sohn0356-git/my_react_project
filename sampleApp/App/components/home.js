@@ -12,6 +12,10 @@ export default function home({ navigation }) {
         title="Go to Chat Page"
         onPress={() => navigation.navigate('Chat')}
       />
+      <Button
+        title="Go to Insta Page"
+        onPress={() => navigation.navigate('Instagram')}
+      />
     </View>
   );
 }
