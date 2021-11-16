@@ -8,6 +8,7 @@ import LoginScreen from './loginScreen1';
 import ChatScreen from './chatScreen1';
 import RegisterScreen from './registerScreen1';
 import InstagramClone from './instagramCopy';
+import SearchScreen from './Search';
 
 function ProfileScreen({ navigation }) {
   return (
@@ -46,6 +47,7 @@ export default function MyStack() {
         <Stack.Screen name="Chat" component={ChatScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Instagram" component={InstagramClone} />
+        <Stack.Screen name="Search" component={SearchScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
