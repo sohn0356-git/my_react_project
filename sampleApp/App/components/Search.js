@@ -65,8 +65,9 @@ export default function SearchScreen1() {
         </View>
         {filteredUsers.length > 0 ? (
           <ScrollView>
-            {filteredUsers.map((user) => (
+            {filteredUsers.map((user, idx) => (
               <TouchableOpacity
+                key={idx}
                 style={styles.userCard}
                 onPress={() => {
                   Alert.alert(
