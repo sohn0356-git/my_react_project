@@ -11,6 +11,7 @@ import InstagramClone from './instagramCopy';
 import SearchScreen from './Search';
 import SocialScreen from './socialScreen';
 import LevelInfoScreen from './levelInfoScreen'
+import CartScreen from './cartScreen'
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -44,7 +45,11 @@ export default function MyStack() {
   return (
     <NavigationContainer>
       <SafeAreaProvider>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown:false,
+          }}
+        >
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Notifications" component={NotificationsScreen} />
           <Stack.Screen name="Profile" component={ProfileScreen} />
@@ -55,6 +60,7 @@ export default function MyStack() {
           <Stack.Screen name="Search" component={SearchScreen} />
           <Stack.Screen name="Social" component={SocialScreen} />
           <Stack.Screen name="LevelInfo" component={LevelInfoScreen} />
+          <Stack.Screen name="Cart" component={CartScreen} />
         </Stack.Navigator>
       </SafeAreaProvider>
     </NavigationContainer>

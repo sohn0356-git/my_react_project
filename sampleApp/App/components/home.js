@@ -30,6 +30,10 @@ export default function home({ navigation }) {
         title="Go to LevelInfo Page"
         onPress={() => navigation.navigate('LevelInfo')}
       />
+      <Button
+        title="Go to Cart Page"
+        onPress={() => navigation.navigate('Cart')}
+      />
     </View>
   );
 }

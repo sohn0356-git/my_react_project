@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,16 +10,29 @@ import {
   ActivityIndicator,
   StatusBar,
   ImageBackground,
+  Modal,
+  Pressable
 } from 'react-native';
 import imagePath from '../utils/imagePath';
+import Slider from '@react-native-community/slider';
 import { AutoSizeText, ResizeTextMode } from 'react-native-auto-size-text';
-
+// import { Picker } from '@react-native-community/picker';
+import PickerEx from './ex_picker';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-function Home() {
-
+function Home({navigation}) {
+  const [gaze, setGaze] = useState(0);
+  const [modalVisible, setModalVisible] = useState(false)
+  const stepSize = 10000;
+  const onChangeGaze = (val) => {
+    setGaze(Math.floor(val));
+  }
+  const [country, setCountry] = useState('canada')
+  const onCountryHandler = (choice, idx) => {
+    setCountry(choice);
+  }
 
   const [posts] = useState([
     {
@@ -486,6 +499,43 @@ function Home() {
     },
   ]);
   
+  useEffect(() => {
+    navigation.setOptions({
+      title: 'LevelInfo',
+      headerTitleStyle: { fontSize: 22 },
+      headerStyle: { backgroundColor: '#f6e58d' },
+      headerLeft: () => (
+        <TouchableOpacity style={{ marginHorizontal: 10, flexDirection:'row' }}>
+          <Icon
+            name='home'
+            size={28}
+            onPress={()=>{navigation.goBack()}}
+          />
+        </TouchableOpacity>
+      ),
+      headerRight: () => (
+        <TouchableOpacity style={{ flexDirection:'row', marginHorizontal: 10 }}>
+          <TouchableOpacity>
+          <Icon
+            style={{paddingRight:20}}
+            name='chevron-up'
+            size={21}
+            onPress={()=>{navigation.goBack()}}
+          />
+          <Icon
+            style={{paddingRight:20}}
+            name='chevron-down'
+            size={21}
+            onPress={()=>{navigation.goBack()}}
+          />
+          </TouchableOpacity>
+          <Icon name='save' size={24} style={{marginRight:10}} />
+          <Icon name='sliders' onPress={()=>setModalVisible(!modalVisible)} size={24} style={{marginRight:10}} />
+          <Icon name='filter' size={24} style={{marginRight:10}} />
+        </TouchableOpacity>
+      ),
+    });
+  }, []);
 
   function Post({ post }) {
     return (
@@ -509,10 +559,11 @@ function Home() {
       
         <TouchableOpacity style={styles.postStatsOpacity}>
           <AutoSizeText
-            fontSize={12}
-            numberOfLines={4}
-            maxFontSize={12}
-            mode={ResizeTextMode.max_font_size}>
+            fontSize={10}
+            max_lines={3}
+            numberOfLines={3}
+            maxFontSize={10}
+            mode={[ResizeTextMode.max_font_size, ResizeTextMode.max_lines]}>
             {imagePath[post.id].text}
           </AutoSizeText>
         </TouchableOpacity>
@@ -524,6 +575,46 @@ function Home() {
   return (
     <View style={{ ...styles.container }}>
       <ScrollView>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+          <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </Pressable> 
+            {/* <Text style={styles.modalText}>Hello World!</Text>
+            */}
+            <PickerEx />
+          </View>
+        </View>
+      </Modal>
+      <View style={{alignItems:'center', justifyContent:'center', backgroundColor:'yellow'}}>
+        {/* <Slider 
+          minimumValue={0}
+          maximumValue={stepSize*(levelRange.single.length-1)}
+          value={gaze}
+          step={stepSize}
+          onValueChange={(val)=>onChangeGaze(val)}
+          style={{height:40, width:300}}
+          />
+        <Text
+          style={{
+            fontSize:16,
+            color: 'yellow'
+          }}
+        >{levelRange.single[Math.floor(gaze/stepSize)]}</Text> */}
+        
+      </View>
         {/* Search Bar View */}
         <View style={{ ...styles.searchBarView }}>
           <View style={{ ...styles.searchBar }}>
@@ -532,7 +623,6 @@ function Home() {
               style={{
                 paddingHorizontal: 6,
                 color: '#c1c1c1',
-                
               }}
               placeholder='Search'
               placeholderTextColor='#c1c1c1'
@@ -558,7 +648,6 @@ function Explore() {
         style={{
           color: '#fff',
           paddingHorizontal: 10,
-        
           fontSize: 30,
         }}
       >
@@ -637,7 +726,6 @@ export default function LevelInfo() {
           tabBarIcon: ({ color, size }) => (
             <Icon name='home' color={color} size={size - 4} />
           ),
-          headerShown:false
         }}
       />
       <Tab.Screen
@@ -721,10 +809,36 @@ const styles = StyleSheet.create({
     fontSize: 30,
   
   },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    backgroundColor:'pink',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
   showAllText: {
     color: '#c1c1c1',
   
     fontSize: 18,
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
   },
   storyUserProfile: {
     marginRight: 20,
@@ -752,13 +866,19 @@ const styles = StyleSheet.create({
     height:100
   },
   postStatsOpacity: {
-    flex:2,
-    backgroundColor: '#222',
-    padding: 8,
+    flex:4,
+    paddingLeft:3,
+    paddingRight:3,
+    backgroundColor: '#222', 
     borderRadius: 6,
     justifyContent:'center',
     alignItems: 'center',
-    paddingHorizontal: 10,
     backgroundColor:'yellow'
   },
+  pickerContainer:{
+    backgroundColor:'pink',
+    alignItems:'center',
+    padding:5,
+    marginBottom:200,
+  }
 });

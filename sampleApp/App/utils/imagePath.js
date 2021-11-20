@@ -65,10 +65,11 @@ const imagePath = [
   },
   {
     image: require('../assets/image/a_16.png'),
-    text:'오! 로사!'
+    text:'가나다라마바사아자차카타파하까따빠'
   },
   {
-    image: require('../assets/image/a_17.png'), text:''
+    image: require('../assets/image/a_17.png'),
+    text:'djflsjfkdsjfdskfdsnfdlksjfakjfksdfjksdlfjsk'
   },
   {
     image: require('../assets/image/a_18.png'), text:''
