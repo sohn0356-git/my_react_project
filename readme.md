@@ -24,4 +24,4 @@
     * first login page sample
 <img src="https://github.com/sohn0356-git/my_react_project/blob/main/sampleApp/App/assets/image/sampleLoginPage.png?raw=true">
     * levelInfo page sample
-<img src="https://github.com/sohn0356-git/my_react_project/blob/main/sampleApp/App/assets/image/sampleLoginPage.png?raw=true">
+<img src="https://github.com/sohn0356-git/my_react_project/blob/main/sampleApp/App/assets/image/sampleLevelInfoPage.png?raw=true">
