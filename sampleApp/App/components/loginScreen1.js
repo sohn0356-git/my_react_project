@@ -10,9 +10,10 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from 'react-native';
+import { Icon } from 'react-native-elements';
 import Logo from '../assets/image/xx.png';
 
-export default function LoginScreen1({navigation}) {
+export default function LoginScreen1() {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
@@ -29,6 +30,12 @@ export default function LoginScreen1({navigation}) {
                 }}
                 source={Logo}
               />
+              {/* <Icon
+                color='#fff'
+                name='comments'
+                type='font-awesome'
+                size={50}
+              /> */}
             </View>
             <Text style={styles.loginTitleText}>Login</Text>
             <View style={styles.hr}></View>
@@ -53,18 +60,11 @@ export default function LoginScreen1({navigation}) {
             <TouchableOpacity style={styles.loginButton}>
               <Text style={styles.loginButtonText}>Login</Text>
             </TouchableOpacity>
-            <View style={styles.registerBox}>
+            <TouchableOpacity>
               <Text style={styles.registerText}>
-                Don't have an account?
+                Don't have an account? Register Now
               </Text>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Register')}
-              >
-                <Text style={[styles.registerText,{color:'blue'}]}>
-                  Register Now
-                </Text>
-              </TouchableOpacity>
-            </View>
+            </TouchableOpacity>
             <TouchableOpacity>
               <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
             </TouchableOpacity>
@@ -175,15 +175,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
-  registerBox: {
-    display:'flex',
-    flexDirection:'row',
-  },
   registerText: {
     textAlign: 'center',
     marginTop: 20,
     fontSize: 16,
-    marginLeft:10
   },
   forgotPasswordText: {
     textAlign: 'center',
