@@ -21,3 +21,7 @@
     * level info, category, mypage 들어가기 전 페이지 background에 랜덤 album 커버(투명도 50%) 적용
   #### sampleApp
     * sampleApp들을 분석하여 앞으로 만들 App 구상해보기
+    * first login page sample
+<img src="https://github.com/sohn0356-git/my_react_project/blob/main/sampleApp/App/assets/image/sampleLoginPage.png?raw=true">
+    * levelInfo page sample
+<img src="https://github.com/sohn0356-git/my_react_project/blob/main/sampleApp/App/assets/image/sampleLoginPage.png?raw=true">
