@@ -23,5 +23,9 @@
     * sampleApp들을 분석하여 앞으로 만들 App 구상해보기
     * first login page sample
 <img src="https://github.com/sohn0356-git/my_react_project/blob/main/sampleApp/App/assets/image/sampleLoginPage.png?raw=true">
+
     * levelInfo page sample
 <img src="https://github.com/sohn0356-git/my_react_project/blob/main/sampleApp/App/assets/image/sampleLevelInfoPage.png?raw=true">
+
+    * levelInfo header change and modal apply
+<img src="https://github.com/sohn0356-git/my_react_project/blob/main/sampleApp/App/assets/image/sampleModal.png?raw=true">
