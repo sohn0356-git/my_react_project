@@ -5,3 +5,14 @@
 # 211122
 * levelInfo에서 detail difficulty 별로 구분해보고 background color 적용시켜보기
 * songInfo에서 imagebackground로 앨범커버 적용하고 투명도 넣기
+'''
+export default function DynamicImage({props}){
+    return (
+        <Image source={this.props.imageName}
+            resizeMode="contain"
+            style={{ height: 24, width: 24 }}
+        />
+    ); 
+}
+<DynamicImage imageName={require(`../assets/images/a_${post.id}.png`)} />
+'''
