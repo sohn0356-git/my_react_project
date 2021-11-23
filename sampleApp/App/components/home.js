@@ -34,6 +34,10 @@ export default function home({ navigation }) {
         title="Go to Cart Page"
         onPress={() => navigation.navigate('Cart')}
       />
+      <Button
+        title="Go to ChatList Page"
+        onPress={() => navigation.navigate('ChatList')}
+      />
     </View>
   );
 }

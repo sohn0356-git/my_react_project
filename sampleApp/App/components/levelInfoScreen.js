@@ -19,6 +19,7 @@ import { AutoSizeText, ResizeTextMode } from 'react-native-auto-size-text';
 // import { Picker } from '@react-native-community/picker';
 import PickerEx from './ex_picker';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import LogoTitle from '../utils/logo_title'
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -501,8 +502,11 @@ function Home({navigation}) {
   
   useEffect(() => {
     navigation.setOptions({
-      title: 'LevelInfo',
-      headerTitleStyle: { fontSize: 22 },
+      // title: 'LevelInfo',
+      // headerTitleStyle: { fontSize: 22 },
+      headerTitle: (props) => {
+        return <LogoTitle {...props} />
+      },
       headerStyle: { backgroundColor: '#f6e58d' },
       headerLeft: () => (
         <TouchableOpacity style={{ marginHorizontal: 10, flexDirection:'row' }}>
@@ -514,21 +518,7 @@ function Home({navigation}) {
         </TouchableOpacity>
       ),
       headerRight: () => (
-        <TouchableOpacity style={{ flexDirection:'row', marginHorizontal: 10 }}>
-          <TouchableOpacity>
-          <Icon
-            style={{paddingRight:20}}
-            name='chevron-up'
-            size={21}
-            onPress={()=>{navigation.goBack()}}
-          />
-          <Icon
-            style={{paddingRight:20}}
-            name='chevron-down'
-            size={21}
-            onPress={()=>{navigation.goBack()}}
-          />
-          </TouchableOpacity>
+        <TouchableOpacity style={{ flexDirection:'row', marginHorizontal: 10, alignItems:'center' }}>
           <Icon name='save' size={24} style={{marginRight:10}} />
           <Icon name='sliders' onPress={()=>setModalVisible(!modalVisible)} size={24} style={{marginRight:10}} />
           <Icon name='filter' size={24} style={{marginRight:10}} />
@@ -586,15 +576,23 @@ function Home({navigation}) {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-          <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable> 
             {/* <Text style={styles.modalText}>Hello World!</Text>
             */}
             <PickerEx />
+            <View flexDirection='row'>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle}>ok</Text>
+              </Pressable> 
+              <Pressable
+                style={[styles.button, styles.buttonOpen]}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle}>cancel</Text>
+              </Pressable> 
+            </View>
           </View>
         </View>
       </Modal>
@@ -813,7 +811,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    marginTop: 22,
   },
   modalView: {
     margin: 20,
@@ -821,7 +819,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
-    backgroundColor:'pink',
+    backgroundColor: 'rgba(255,255,255,0.94)',
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -880,5 +878,18 @@ const styles = StyleSheet.create({
     alignItems:'center',
     padding:5,
     marginBottom:200,
-  }
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+    margin:8,
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+    margin:8,
+  },
 });

@@ -12,7 +12,7 @@ import SearchScreen from './Search';
 import SocialScreen from './socialScreen';
 import LevelInfoScreen from './levelInfoScreen'
 import CartScreen from './cartScreen'
-
+import ChatScreen2 from './chatScreen2';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 function ProfileScreen({ navigation }) {
@@ -55,6 +55,7 @@ export default function MyStack() {
           <Stack.Screen name="Profile" component={ProfileScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Chat" component={ChatScreen} />
+          <Stack.Screen name="ChatList" component={ChatScreen2} />
           <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="Instagram" component={InstagramClone} />
           <Stack.Screen name="Search" component={SearchScreen} />

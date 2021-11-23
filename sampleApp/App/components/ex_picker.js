@@ -10,13 +10,9 @@ export default function PickerEx(){
     SingPerf:[1,2,3,4,5,10,15],
     DoubPerf:[1,2,3,4,5,6,7,8,20,23,24]
   }
-  const [mode, setMode] = useState('single');
+  const [mode, setMode] = useState('Single');
   const [level, setLevel] = useState(4);
-  const [modeLevel, setModeLevel] = useState(levelRange[mode])
-  const [country, setCountry] = useState('korea');
-  const onCountryHandler = (choice, idx) => {
-    setCountry(choice);
-  };
+  const [modeLevel, setModeLevel] = useState(levelRange['Single'])
   return (
     <View 
       style={{
@@ -40,7 +36,7 @@ export default function PickerEx(){
         selectedValue={level}
         onValueChange={(itemValue, itemIndex) => setLevel(itemValue)}
       >
-        { modeLevel ? Object.values(modeLevel).map((val,idx)=>(<Picker.Item label={val} key={idx} value={val}/>)):null}
+        { modeLevel ? Object.values(modeLevel).map((val,idx)=>(<Picker.Item label={val.toString()} key={idx} value={val}/>)):null}
       </Picker>
     </View>
   )
