@@ -20,7 +20,7 @@ import { AutoSizeText, ResizeTextMode } from 'react-native-auto-size-text';
 import PickerEx from './ex_picker';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LogoTitle from '../utils/logo_title'
-import DynamicImage from './dynamicImage';
+import Swiper from 'react-native-swiper';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -529,6 +529,21 @@ function Home({navigation}) {
   }, []);
 
   function Post({ post }) {
+    const [songInfo, setSongInfo] = useState([
+      {
+        userImage: 'https://randomuser.me/api/portraits/men/60.jpg',
+        userName: 'Brayden Willis',
+        storyImage:
+          'https://images.pexels.com/photos/4726898/pexels-photo-4726898.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      },
+      {
+        userImage: 'https://randomuser.me/api/portraits/women/81.jpg',
+        userName: 'Sophie Price',
+        storyImage:
+          'https://images.pexels.com/photos/5257534/pexels-photo-5257534.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      }])
+    const [currentSongInfo, setCurrentSongInfo] = useState(songInfo);
+    const [songInfoModalVisible, setSongInfoModalVisible] = useState(false);
     return (
       <View style={styles.postView}>
         {/* Post Content */}
@@ -537,8 +552,16 @@ function Home({navigation}) {
           imageStyle={{borderRadius: 10}}
           source={imagePath[post.id].image}
           // source={require(`../assets/image/a_${4}.png`)}
-        />
-        <DynamicImage imageName={`../assets/images/a_${post.id}.png`} />
+        >
+          <TouchableOpacity
+            style={{flex:1, justifyContent:'center'}}
+            onPress={()=>{
+              setSongInfoModalVisible(true);
+            }}
+          >
+
+          </TouchableOpacity>
+        </ImageBackground>
         {/* <View style={{ flex : 8, width: '100%', height:'100%', marginTop: 0, backgroundColor:'blue' }}>
           {post.postImage ? (
             <Image
@@ -559,6 +582,123 @@ function Home({navigation}) {
             {imagePath[post.id].text}
           </AutoSizeText>
         </TouchableOpacity>
+        <Modal
+          animationType='slide'
+          transparent={true}
+          visible={songInfoModalVisible}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView2}>
+              <TouchableOpacity
+                style={{
+                  position: 'absolute',
+                  top: 8,
+                  right: 8,
+                  zIndex: 1,
+                  backgroundColor: 'rgba(51, 51, 51, 0.3)',
+                  borderRadius: 100,
+                  padding: 2,
+                }}
+                onPress={() => {
+                  setSongInfoModalVisible(false);
+                }}
+              >
+                <Icon name='times' color='#fafafa' size={26} />
+              </TouchableOpacity>
+              <Swiper
+                showsButtons={true}
+                style={{ height: '100%' }}
+                loop={false}
+                showsPagination={false}
+              >
+                {currentSongInfo.map((story, idx) => (
+                  <View style={{ alignItems: 'center', backgroundColor:'white' }} key={idx} >
+                    <ImageBackground
+                      style={{
+                        width:'100%',
+                        height:'100%'
+                      }}
+                      imageStyle={{
+                        resizeMode: 'stretch',
+                        opacity:0.6
+                      }}
+                      source={imagePath[post.id].image}
+                    >
+                      <View style={{alignItems:'center', marginTop:20, marginBottom:40}}>
+                        <Text style={{fontSize:30, fontWeight:'900'}}>
+                          베토벤 바이러스
+                        </Text>
+                      </View>
+                      <View style={{margin:15}}>
+                         <Text style={{fontSize:24, fontWeight:'bold'}}>
+                            아티스트 : 반야
+                         </Text>
+                      </View>
+                      <View style={{ margin:15}}>
+                         <Text style={{fontSize:24, fontWeight:'bold'}}>
+                            BPM : 162
+                         </Text>
+                      </View>
+                      <View style={{ margin:15}} flexDirection='row' flexWrap='wrap'>
+                        <Image 
+                          style={{marginLeft:5, marginBottom:5, width:50, height:50}}
+                          source={require('../assets/image/ff_s04.png')}
+                        />
+                        <Image 
+                          style={{marginLeft:5, marginBottom:5, width:50, height:50}}
+                          source={require('../assets/image/ff_s06.png')}
+                        />
+                        <Image 
+                          style={{marginLeft:5, marginBottom:5, width:50, height:50}}
+                          source={require('../assets/image/ff_s07.png')}
+                        />
+                        <Image 
+                          style={{marginLeft:5, marginBottom:5, width:50, height:50}}
+                          source={require('../assets/image/on_s11.png')}
+                        />
+                        <Image 
+                          style={{marginLeft:5, marginBottom:5, width:50, height:50}}
+                          source={require('../assets/image/ff_s16.png')}
+                        />
+                        <Image 
+                          style={{marginLeft:5, marginBottom:5, width:50, height:50}}
+                          source={require('../assets/image/ff_s17.png')}
+                        />
+                        <Image
+                          style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
+                          source={require('../assets/image/ff_d11.png')}
+                        />
+                        <Image
+                          style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
+                          source={require('../assets/image/ff_d18.png')}
+                        />
+                        <Image
+                          style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
+                          source={require('../assets/image/ff_d21.png')}
+                        />
+                        <Image
+                          style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
+                          source={require('../assets/image/ff_b03.png')}
+                        />
+                        <Image
+                          style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
+                          source={require('../assets/image/ff_c02.png')}
+                        />
+                      </View>
+                      <View style={{backgroundColor:'black', justifyContent:'center', alignItems:'center'}}>
+                        <Icon
+                          size={200}
+                          name='youtube-play'
+                          color='#F02030'
+                        />
+                      </View>
+                    </ImageBackground>
+                  </View>
+                ))}
+              </Swiper>
+            </View>
+          </View>
+        </Modal>
       
       </View>
     );
@@ -893,5 +1033,29 @@ const styles = StyleSheet.create({
   buttonClose: {
     backgroundColor: "#2196F3",
     margin:8,
+  },
+
+  storiesView: {
+    paddingVertical: 10,
+    paddingRight: 10,
+    backgroundColor: '#fafafa',
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+    overflow: 'hidden',
+  },
+  storyContentView: {
+    width: 90,
+    height: 130,
+    borderRadius: 10,
+    borderColor: '#dfe4ea',
+    borderWidth: 1.5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modalView2: {
+    width: '90%',
+    height: '70%',
+    borderRadius: 20,
+    overflow: 'hidden',
   },
 });
