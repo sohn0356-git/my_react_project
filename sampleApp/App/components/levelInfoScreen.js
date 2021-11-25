@@ -20,6 +20,7 @@ import { AutoSizeText, ResizeTextMode } from 'react-native-auto-size-text';
 import PickerEx from './ex_picker';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LogoTitle from '../utils/logo_title'
+import DynamicImage from './dynamicImage';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -537,6 +538,7 @@ function Home({navigation}) {
           source={imagePath[post.id].image}
           // source={require(`../assets/image/a_${4}.png`)}
         />
+        <DynamicImage imageName={`../assets/images/a_${post.id}.png`} />
         {/* <View style={{ flex : 8, width: '100%', height:'100%', marginTop: 0, backgroundColor:'blue' }}>
           {post.postImage ? (
             <Image
