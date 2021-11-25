@@ -29,3 +29,6 @@
 
   * levelInfo header change and modal apply
 <img src="https://github.com/sohn0356-git/my_react_project/blob/main/sampleApp/App/assets/image/sampleModal.png?raw=true">
+
+  * songInfo modal apply
+<img src="https://github.com/sohn0356-git/my_react_project/blob/main/sampleApp/App/assets/image/songInfo.png?raw=true">
