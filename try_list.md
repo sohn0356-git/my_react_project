@@ -17,3 +17,6 @@ export default function DynamicImage({props}){
 }
 <DynamicImage imageName={require(`../assets/images/a_${post.id}.png`)} />
 ```
+
+# 211124
+* levelInfo update가 너무 잦음 => useEffect에서 처리하도록 변경
