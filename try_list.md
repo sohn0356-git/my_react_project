@@ -20,3 +20,13 @@ export default function DynamicImage({props}){
 
 # 211124
 * levelInfo update가 너무 잦음 => useEffect에서 처리하도록 변경
+
+# 211126
+```javascript
+hr: {
+    width: '100%',
+    height: 0.5,
+    backgroundColor: '#444',
+    marginTop: 6,
+  },
+```
