@@ -606,10 +606,12 @@ function Home({navigation}) {
                 <Icon name='times' color='#fafafa' size={26} />
               </TouchableOpacity>
               <Swiper
-                showsButtons={true}
+                showsButtons={false}
                 style={{ height: '100%' }}
                 loop={false}
-                showsPagination={false}
+                showsPagination={true}
+                dotColor='gray'
+                activeDotColor='black'
               >
                 {currentSongInfo.map((story, idx) => (
                   <View style={{ alignItems: 'center', backgroundColor:'white' }} key={idx} >
@@ -620,79 +622,148 @@ function Home({navigation}) {
                       }}
                       imageStyle={{
                         resizeMode: 'stretch',
-                        opacity:0.6
+                        opacity:0.75
                       }}
                       source={imagePath[post.id].image}
-                    >
+                      >
                       <View style={{alignItems:'center', marginTop:20, marginBottom:40}}>
                         <Text style={{fontSize:30, fontWeight:'900'}}>
                           베토벤 바이러스
                         </Text>
+                        <View style={styles.hr}></View>
                       </View>
-                      <View style={{margin:15}}>
-                         <Text style={{fontSize:24, fontWeight:'bold'}}>
-                            아티스트 : 반야
-                         </Text>
-                      </View>
-                      <View style={{ margin:15}}>
-                         <Text style={{fontSize:24, fontWeight:'bold'}}>
-                            BPM : 162
-                         </Text>
-                      </View>
-                      <View style={{ margin:15}} flexDirection='row' flexWrap='wrap'>
-                        <Image 
-                          style={{marginLeft:5, marginBottom:5, width:50, height:50}}
-                          source={require('../assets/image/ff_s04.png')}
-                        />
-                        <Image 
-                          style={{marginLeft:5, marginBottom:5, width:50, height:50}}
-                          source={require('../assets/image/ff_s06.png')}
-                        />
-                        <Image 
-                          style={{marginLeft:5, marginBottom:5, width:50, height:50}}
-                          source={require('../assets/image/ff_s07.png')}
-                        />
-                        <Image 
-                          style={{marginLeft:5, marginBottom:5, width:50, height:50}}
-                          source={require('../assets/image/on_s11.png')}
-                        />
-                        <Image 
-                          style={{marginLeft:5, marginBottom:5, width:50, height:50}}
-                          source={require('../assets/image/ff_s16.png')}
-                        />
-                        <Image 
-                          style={{marginLeft:5, marginBottom:5, width:50, height:50}}
-                          source={require('../assets/image/ff_s17.png')}
-                        />
-                        <Image
-                          style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
-                          source={require('../assets/image/ff_d11.png')}
-                        />
-                        <Image
-                          style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
-                          source={require('../assets/image/ff_d18.png')}
-                        />
-                        <Image
-                          style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
-                          source={require('../assets/image/ff_d21.png')}
-                        />
-                        <Image
-                          style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
-                          source={require('../assets/image/ff_b03.png')}
-                        />
-                        <Image
-                          style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
-                          source={require('../assets/image/ff_c02.png')}
-                        />
-                      </View>
-                      <View style={{backgroundColor:'black', justifyContent:'center', alignItems:'center'}}>
-                        <Icon
-                          size={200}
-                          name='youtube-play'
-                          color='#F02030'
-                        />
-                      </View>
-                    </ImageBackground>
+                      {idx==0?(
+                        <>
+                        <View style={{margin:15}}>
+                          <Text style={{fontSize:24, fontWeight:'bold'}}>
+                              아티스트 : 반야
+                          </Text>
+                        </View>
+                        <View style={{ margin:15}}>
+                          <Text style={{fontSize:24, fontWeight:'bold'}}>
+                              BPM : 162
+                          </Text>
+                        </View>
+                        <View style={{ margin:15}} flexDirection='row' flexWrap='wrap'>
+                          <Image 
+                            style={{marginLeft:5, marginBottom:5, width:50, height:50}}
+                            source={require('../assets/image/ff_s04.png')}
+                          />
+                          <Image 
+                            style={{marginLeft:5, marginBottom:5, width:50, height:50}}
+                            source={require('../assets/image/ff_s06.png')}
+                          />
+                          <Image 
+                            style={{marginLeft:5, marginBottom:5, width:50, height:50}}
+                            source={require('../assets/image/ff_s07.png')}
+                          />
+                          <Image 
+                            style={{marginLeft:5, marginBottom:5, width:50, height:50}}
+                            source={require('../assets/image/on_s11.png')}
+                          />
+                          <Image 
+                            style={{marginLeft:5, marginBottom:5, width:50, height:50}}
+                            source={require('../assets/image/ff_s16.png')}
+                          />
+                          <Image 
+                            style={{marginLeft:5, marginBottom:5, width:50, height:50}}
+                            source={require('../assets/image/ff_s17.png')}
+                          />
+                          <Image
+                            style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
+                            source={require('../assets/image/ff_d11.png')}
+                          />
+                          <Image
+                            style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
+                            source={require('../assets/image/ff_d18.png')}
+                          />
+                          <Image
+                            style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
+                            source={require('../assets/image/ff_d21.png')}
+                          />
+                          <Image
+                            style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
+                            source={require('../assets/image/ff_b03.png')}
+                          />
+                          <Image
+                            style={{marginLeft:5, marginBottom:5, width:50, height:50}} 
+                            source={require('../assets/image/ff_c02.png')}
+                          />
+                        </View>
+                        <View style={{backgroundColor:'black', justifyContent:'center', alignItems:'center'}}>
+                          <Icon
+                            size={200}
+                            name='youtube-play'
+                            color='#F02030'
+                          />
+                        </View>
+                        </>):
+                        (<View>
+                          <Text>Select Rank : </Text>
+                          <View style={{flexDirection:'row', alignItems:'center', margin:15, justifyContent:'center'}}>
+                            <Text style={{fontSize: 18, marginBottom: 6, marginRight:15, fontWeight:'bold'}}>Great</Text>
+                            <TextInput
+                              keyboardType='number-pad'
+                              textContentType='none'
+                              style={{
+                                  width: '60%',
+                                  height: 40,
+                                  backgroundColor: '#dfe4ea',
+                                  borderRadius: 4,
+                                  paddingHorizontal: 10,
+                                  paddingRight:10,
+                                }}
+                            />
+                          </View>
+                          <View style={{flexDirection:'row', alignItems:'center', margin:15, justifyContent:'center'}}>
+                            <Text style={{fontSize: 18, marginBottom: 6, marginRight:15, fontWeight:'bold'}}>Good</Text>
+                            <TextInput
+                              keyboardType='number-pad'
+                              textContentType='none'
+                              style={{
+                                  width: '60%',
+                                  height: 40,
+                                  backgroundColor: '#dfe4ea',
+                                  borderRadius: 4,
+                                  paddingHorizontal: 10,
+                                  paddingRight:10,
+                                }}
+                            />
+                          </View>
+                          <View style={{flexDirection:'row', alignItems:'center', margin:15, justifyContent:'center'}}>
+                            <Text style={{fontSize: 18, marginBottom: 6, marginRight:15, fontWeight:'bold'}}>Bad</Text>
+                            <TextInput
+                              keyboardType='number-pad'
+                              textContentType='none'
+                              style={{
+                                  width: '60%',
+                                  height: 40,
+                                  backgroundColor: '#dfe4ea',
+                                  borderRadius: 4,
+                                  paddingHorizontal: 10,
+                                  paddingRight:10,
+                                }}
+                            />
+                          </View>
+                          <View style={{flexDirection:'row', alignItems:'center', margin:15, justifyContent:'center'}}>
+                            <Text style={{fontSize: 18, marginBottom: 6, marginRight:15, fontWeight:'bold'}}>Miss</Text>
+                            <TextInput
+                              keyboardType='number-pad'
+                              textContentType='none'
+                              style={{
+                                  width: '60%',
+                                  height: 40,
+                                  backgroundColor: '#dfe4ea',
+                                  borderRadius: 4,
+                                  paddingHorizontal: 10,
+                                  paddingRight:10,
+                                }}
+                            />
+                          </View>
+                          <Text>Last record:</Text>
+                        </View>)
+                        }
+                      </ImageBackground>
                   </View>
                 ))}
               </Swiper>
@@ -948,6 +1019,12 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 30,
   
+  },
+  hr: {
+    width: '100%',
+    height: 0.5,
+    backgroundColor: 'black',
+    marginTop: 6,
   },
   centeredView: {
     flex: 1,

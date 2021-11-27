@@ -405,7 +405,7 @@ const Chats = () => {
                 showsButtons={true}
                 style={{ height: '100%' }}
                 loop={false}
-                showsPagination={false}
+                showsPagination={true}
               >
                 {currentStoryView.map((story, idx) => (
                   <View style={{ alignItems: 'center' }} key={idx} >
