@@ -32,6 +32,6 @@ hr: {
 ```
 
 # 211127
-* PFU Project 시작
+* PFY Project 시작
 * flip card 활용하여 user 게시글 component 생성
 * instaclone base로 틀 만들어보기

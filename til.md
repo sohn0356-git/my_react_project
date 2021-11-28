@@ -103,7 +103,11 @@ implementation project(':react-native-vector-icons')
 # 211115
 * Cannot update a component from inside the function body of a different component <= navigator header setting하는 부분을 useEffect로 감싸줌으로 해결
 
-# 211220
+# 211120
 * flexDirection row의 경우 자식 View가 화면을 넘어갈 수 있다. 이 때 flexWrap: 'wrap'를 사용하면 자동 줄 바꿈을 해준다.
 * import { AutoSizeText, ResizeTextMode } from 'react-native-auto-size-text';
 * npm install --save react-native-auto-size-text
+
+# 211128
+* npm install react-native-linear-gradient --save
+* npm install react-native-select-dropdown --save
