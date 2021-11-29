@@ -39,4 +39,5 @@ hr: {
 # 211129
 * PFY Project bottomtab page는 총 4개
 * 메인, 감사제목, 즐겨찾기, my page
+* input form 조사해보기
 
