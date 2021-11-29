@@ -35,3 +35,8 @@ hr: {
 * PFY Project 시작
 * flip card 활용하여 user 게시글 component 생성
 * instaclone base로 틀 만들어보기
+
+# 211129
+* PFY Project bottomtab page는 총 4개
+* 메인, 감사제목, 즐겨찾기, my page
+
