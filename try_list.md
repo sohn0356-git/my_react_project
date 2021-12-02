@@ -41,3 +41,6 @@ hr: {
 * 메인, 감사제목, 즐겨찾기, my page
 * input form 조사해보기
 
+# 211201
+* 영어 react native 강의 sample app에 component 정리
+
