@@ -7,6 +7,7 @@ import Usage from './App/Components/Usage';
 import ModalExample from './App/Components/ModalExam';
 import ModalExample2 from './App/Components/modalexam2';
 import ModalExample3 from './App/Components/modalexam3';
+import TestView from './App/Components/TestView';
 const App = () => {
   const cardInfo = {
     name: 'Denise Rose',
@@ -24,10 +25,11 @@ const App = () => {
       {/* <FlipComponent cardInfo={cardInfo}/> */}
       {/* <LoginScreen /> */}
       {/* <RegisterScreen /> */}
-      <Usage />
+      {/* <Usage /> */}
       {/* <ModalExample /> */}
       {/* <ModalExample2 /> */}
       {/* <ModalExample3 /> */}
+      <TestView />
    </View>
  );
 }
