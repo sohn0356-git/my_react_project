@@ -47,3 +47,7 @@ hr: {
 # 211201
 * 영어 react native 강의 sample app에 component 정리
 
+# 211204
+* share log app 형이랑 추가 구상하기
+* youtube react native 강의 보기
+
