@@ -111,3 +111,10 @@ implementation project(':react-native-vector-icons')
 # 211128
 * npm install react-native-linear-gradient --save
 * npm install react-native-select-dropdown --save
+
+# 211205
+```javascript
+  let itemsCopy = [...taskItems];
+  itemsCopy.splice(index, 1);
+  setTaskItems(itemsCopy);
+```
