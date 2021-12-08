@@ -36,3 +36,5 @@
 #### PFY_Project
 * UI create
 <img src="https://github.com/sohn0356-git/my_react_project/blob/main/sampleApp/App/assets/image/PFY_UI.png?raw=true">
+* board page
+<img src="https://github.com/sohn0356-git/my_react_project/blob/main/sampleApp/App/assets/image/PFY_board.png?raw=true">
