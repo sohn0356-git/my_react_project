@@ -45,3 +45,6 @@
 
 * explain page
 <img src="https://github.com/sohn0356-git/my_react_project/blob/main/sampleApp/App/assets/image/PFY_explains.JPG?raw=true">
+
+* add page
+<img src="https://github.com/sohn0356-git/my_react_project/blob/main/sampleApp/App/assets/image/PFY_page.JPG?raw=true">
