@@ -51,3 +51,5 @@ hr: {
 * share log app 형이랑 추가 구상하기
 * youtube react native 강의 보기
 
+# 211217
+* figma 추가 및 로그인 페이지 
